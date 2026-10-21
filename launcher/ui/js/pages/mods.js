@@ -130,7 +130,7 @@ export function ModsPage() {
                   </div>`)}
                 </div>`}
         </${Card}>
-        ${status?.waiting?.length > 0 && html`<${Card} title="Waiting for their bus" hint="Packs installed before the bus they belong to: they go in once it is there.">
+        ${status?.waiting?.length > 0 && html`<${Card} title="Waiting for their bus" hint="Packs installed before the bus they belong to: they go in once it is there." actions=${html`<${Button} small kind="ghost" icon="alert" label="Details in Troubleshooting" onClick=${() => set({ page: 'troubleshoot' })} />`}>
           <div class="row wrap">${status.waiting.map((w) => html`<${Tag}>${w}</${Tag}>`)}</div>
         </${Card}>`}
         ${status?.hof_warnings?.length > 0 && html`<${Notice} kind="warn"><b>${t('Map HOF issue')}</b><div>${t('Some map HOF files could not be added. Check launcher.log for details.')}</div><ul class="small selectable" style="margin:4px 0 0;padding-left:18px">${status.hof_warnings.slice(0, 10).map((warning) => html`<li>${warning}</li>`)}</ul></${Notice}>`}
